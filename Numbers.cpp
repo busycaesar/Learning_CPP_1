@@ -4,6 +4,8 @@
 #include <fstream>
 #include "Numbers.h"
 
+using namespace std;
+
 namespace sdds
 {
 
@@ -11,7 +13,7 @@ namespace sdds
 	{
 
 		setEmpty();
-		m_isOriginal = false;
+		this->m_isOriginal = false;
 
 	}
 
@@ -19,9 +21,9 @@ namespace sdds
 	{
 
 		setEmpty();
-		m_isOriginal = true;
+		this->m_isOriginal = true;
 		setFilename(filename);
-		m_numCount = numberCount();
+		this->m_numCount = numberCount();
 
 		if (m_numCount == 0 || !load())
 		{
@@ -29,11 +31,11 @@ namespace sdds
 			delete[] m_numbers;
 			delete[] m_filename;
 
-			m_numbers = nullptr;
-			m_filename = nullptr;
+			this->m_numbers = nullptr;
+			this->m_filename = nullptr;
 
 			setEmpty();
-			m_isOriginal = false;
+			this->m_isOriginal = false;
 
 		}
 		else
@@ -49,7 +51,7 @@ namespace sdds
 	{
 
 		setEmpty();
-		m_isOriginal = false;
+		this->m_isOriginal = false;
 
 		*this = source;
 
@@ -62,11 +64,18 @@ namespace sdds
 		{
 
 			delete[] m_numbers;
+			delete[] m_filename;
 
-			m_numCount = source.m_numCount;
+			m_numbers = nullptr;
+			m_filename = nullptr;
 
-			m_numbers = new double[m_numCount];
-			m_numbers = source.m_numbers;
+			this->m_numCount = source.m_numCount;
+
+			this->m_filename = new char[strlen(source.m_filename) + 1];
+			strcpy(this->m_filename, source.m_filename);
+
+			this->m_numbers = new double[m_numCount];
+			this->m_numbers = source.m_numbers;
 
 		}
 
@@ -78,33 +87,41 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		double* temp;
-		int i;
+		double* temp = new double[m_numCount+1];
 
 		if (!isEmpty())
 		{
 
-			temp = new double[++m_numCount];
-
-			for (i = 0; i < m_numCount; i++)
+			for (int i = 0; i < m_numCount; i++)
 			{
 
 				temp[i] = m_numbers[i];
 
 			}
 
-			temp[i] = newNum;
+			temp[m_numCount] = newNum;
 			m_numCount++;
 
 			delete[] m_numbers;
 			m_numbers = nullptr;
+			m_numbers = new double[m_numCount];
 
-			m_numbers = temp;
+			for (int i = 0; i < m_numCount; i++)
+			{
 
-			temp = nullptr;
+				m_numbers[i] = temp[i];
+
+			}
+
 			delete[] temp;
+			temp = nullptr;
 
 			sort();
+
+			for (int i = 0; i < m_numCount; i++)
+			{
+				cout << m_numbers[i]<<endl;
+			}
 
 		}
 		else
@@ -116,6 +133,7 @@ namespace sdds
 
 		return *this;
 
+
 	}
 
 	Numbers::~Numbers()
@@ -126,8 +144,8 @@ namespace sdds
 		delete[] m_numbers;
 		delete[] m_filename;
 
-		m_numbers = nullptr;
-		m_filename = nullptr;
+		this->m_numbers = nullptr;
+		this->m_filename = nullptr;
 
 	}
 
@@ -141,9 +159,12 @@ namespace sdds
 	void Numbers::setEmpty()
 	{
 
-		m_numbers = nullptr;
-		m_filename = nullptr;
-		m_numCount = 0;
+		delete[] m_numbers;
+		delete[] m_filename;
+
+		this->m_numbers = nullptr;
+		this->m_filename = nullptr;
+		this->m_numCount = 0;
 
 	}
 
@@ -151,9 +172,9 @@ namespace sdds
 	{
 
 		delete[] m_filename;
-		m_filename = nullptr;
+		this->m_filename = nullptr;
 
-		m_filename = new char[strlen(filename) + 1];
+		this->m_filename = new char[strlen(filename) + 1];
 		strcpy(m_filename, filename);
 	}
 
@@ -164,18 +185,18 @@ namespace sdds
 		int i, j;
 		double temp;
 
-		for (i = m_numCount - 1; i > 0; i--)
+		for (i = this->m_numCount - 1; i > 0; i--)
 		{
 
 			for (j = 0; j < i; j++)
 			{
 
-				if (m_numbers[j] > m_numbers[j + 1])
+				if (this->m_numbers[j] > this->m_numbers[j + 1])
 				{
 
-					temp = m_numbers[j];
-					m_numbers[j] = m_numbers[j + 1];
-					m_numbers[j + 1] = temp;
+					temp = this->m_numbers[j];
+					this->m_numbers[j] = this->m_numbers[j + 1];
+					this->m_numbers[j + 1] = temp;
 
 				}
 
@@ -195,6 +216,7 @@ namespace sdds
 		{
 
 			for (int i = 0; i < m_numCount; i++)
+
 				aver += m_numbers[i];
 			aver = aver / m_numCount;
 
@@ -213,11 +235,11 @@ namespace sdds
 		if (!isEmpty())
 		{
 
-			minVal = m_numbers[0];
+			minVal = this->m_numbers[0];
 
-			for (int i = 1; i < m_numCount; i++)
+			for (int i = 1; i < this->m_numCount; i++)
 
-				if (minVal > m_numbers[i]) minVal = m_numbers[i];
+				if (minVal > this->m_numbers[i]) minVal = this->m_numbers[i];
 
 		}
 
@@ -233,10 +255,10 @@ namespace sdds
 
 			ostr << "=========================" << endl;
 
-			if (m_isOriginal)
+			if (this->m_isOriginal)
 			{
 
-				ostr << m_filename << endl;
+				ostr << this->m_filename << endl;
 
 			}
 			else
@@ -246,12 +268,12 @@ namespace sdds
 
 			}
 
-			for (int i = 0; i < m_numCount; i++)
+			for (int i = 0; i < this->m_numCount; i++)
 			{
 
-				ostr << m_numbers[i];
+				ostr << this->m_numbers[i];
 
-				if (i == (m_numCount - 1))
+				if (i == (this->m_numCount - 1))
 				{
 
 					ostr << endl;
@@ -264,7 +286,7 @@ namespace sdds
 
 				}
 
-				ostr << "-------------------------" << endl << "Total of " << m_numCount << " number(s)" << endl << "Largest number: " << max() << endl << "Smallest number: " << min() << endl << "Average: " << average() << endl << "=========================";
+				ostr << "-------------------------" << endl << "Total of " << this->m_numCount << " number(s)" << endl << "Largest number: " << max() << endl << "Smallest number: " << min() << endl << "Average: " << average() << endl << "=========================";
 
 			}
 
@@ -289,11 +311,11 @@ namespace sdds
 		if (!isEmpty())
 		{
 
-			maxVal = m_numbers[0];
+			maxVal = this->m_numbers[0];
 
-			for (int i = 1; i < m_numCount; i++)
+			for (int i = 1; i < this->m_numCount; i++)
 
-				if (maxVal < m_numbers[i]) maxVal = m_numbers[i];
+				if (maxVal < this->m_numbers[i]) maxVal = this->m_numbers[i];
 
 		}
 
@@ -305,7 +327,7 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		ifstream file(m_filename);
+		ifstream file(this->m_filename);
 		int totalNumbs = 0;
 		char ch = '\0';
 
@@ -335,37 +357,30 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		bool success = false;
-		double temp;
+		double temp = 0.0;
 		int i = 0;
-		ifstream file(m_filename);
+		ifstream file(this->m_filename);
 
 		if (m_numCount > 0)
 		{
 
-			m_numbers = new double[m_numCount];
+			this->m_numbers = new double[this->m_numCount];
 
 			if (file.is_open())
 			{
 
-				while (file)
+				while (file >> temp)
 				{
 
-					cout << file.get();
+					this->m_numbers[i++] = temp;
 
-					//if ((temp = file.get()) != '\n')
-					//{
-
-					//	m_numbers[i++] == temp;
-
-					//}
 				}
 
 			}
 
 		}
 
-		return i == m_numCount;
+		return i == this->m_numCount;
 
 	}
 
@@ -381,10 +396,10 @@ namespace sdds
 			if (file.is_open())
 			{
 
-				for (int i = 0; i < m_numCount; i++)
+				for (int i = 0; i < this->m_numCount; i++)
 				{
 
-					file << m_numbers[i] << endl;
+					file << this->m_numbers[i] << endl;
 
 				}
 
