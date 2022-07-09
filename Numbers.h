@@ -36,7 +36,7 @@ namespace sdds
 
 		// OPERATORS.
 		Numbers& operator=(const Numbers& source);
-		Numbers& operator+=(const double newNum);
+		Numbers& operator+=(double newNum);
 
 		// PUBLIC FUNCTIONS.
 		double average()const;

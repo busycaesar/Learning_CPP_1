@@ -3,6 +3,7 @@
 #include <cstring>
 #include <fstream>
 #include "Numbers.h"
+#include "Numbers.h"  // intentional
 
 using namespace std;
 
@@ -13,7 +14,7 @@ namespace sdds
 	{
 
 		setEmpty();
-		this->m_isOriginal = false;
+		m_isOriginal = false;
 
 	}
 
@@ -21,9 +22,9 @@ namespace sdds
 	{
 
 		setEmpty();
-		this->m_isOriginal = true;
+		m_isOriginal = true;
 		setFilename(filename);
-		this->m_numCount = numberCount();
+		m_numCount = numberCount();
 
 		if (m_numCount == 0 || !load())
 		{
@@ -31,11 +32,8 @@ namespace sdds
 			delete[] m_numbers;
 			delete[] m_filename;
 
-			this->m_numbers = nullptr;
-			this->m_filename = nullptr;
-
 			setEmpty();
-			this->m_isOriginal = false;
+			m_isOriginal = false;
 
 		}
 		else
@@ -51,7 +49,7 @@ namespace sdds
 	{
 
 		setEmpty();
-		this->m_isOriginal = false;
+		m_isOriginal = false;
 
 		*this = source;
 
@@ -69,13 +67,19 @@ namespace sdds
 			m_numbers = nullptr;
 			m_filename = nullptr;
 
-			this->m_numCount = source.m_numCount;
+			m_numCount = source.m_numCount;
 
-			this->m_filename = new char[strlen(source.m_filename) + 1];
-			strcpy(this->m_filename, source.m_filename);
+			m_filename = new char[strlen(source.m_filename) + 1];
+			strcpy(m_filename, source.m_filename);
 
-			this->m_numbers = new double[m_numCount];
-			this->m_numbers = source.m_numbers;
+			m_numbers = new double[m_numCount];
+
+			for (int i = 0; i < m_numCount; i++)
+			{
+
+				m_numbers[i] = source.m_numbers[i];
+
+			}
 
 		}
 
@@ -83,14 +87,14 @@ namespace sdds
 
 	}
 
-	Numbers& Numbers::operator+=(const double newNum)
+	Numbers& Numbers::operator+=(double newNum)
 	{
-
-		// VARIABLE DECLARATION.
-		double* temp = new double[m_numCount+1];
 
 		if (!isEmpty())
 		{
+
+			// VARIABLE DECLARATION.
+			double* temp = new double[m_numCount + 1];
 
 			for (int i = 0; i < m_numCount; i++)
 			{
@@ -104,35 +108,16 @@ namespace sdds
 
 			delete[] m_numbers;
 			m_numbers = nullptr;
-			m_numbers = new double[m_numCount];
 
-			for (int i = 0; i < m_numCount; i++)
-			{
+			m_numbers = temp;
 
-				m_numbers[i] = temp[i];
-
-			}
-
-			delete[] temp;
 			temp = nullptr;
 
 			sort();
 
-			for (int i = 0; i < m_numCount; i++)
-			{
-				cout << m_numbers[i]<<endl;
-			}
-
-		}
-		else
-		{
-
-			cout << "Object is in Empty state." << endl;
-
 		}
 
 		return *this;
-
 
 	}
 
@@ -143,9 +128,6 @@ namespace sdds
 
 		delete[] m_numbers;
 		delete[] m_filename;
-
-		this->m_numbers = nullptr;
-		this->m_filename = nullptr;
 
 	}
 
@@ -159,12 +141,9 @@ namespace sdds
 	void Numbers::setEmpty()
 	{
 
-		delete[] m_numbers;
-		delete[] m_filename;
-
-		this->m_numbers = nullptr;
-		this->m_filename = nullptr;
-		this->m_numCount = 0;
+		m_numbers = nullptr;
+		m_filename = nullptr;
+		m_numCount = 0;
 
 	}
 
@@ -172,10 +151,10 @@ namespace sdds
 	{
 
 		delete[] m_filename;
-		this->m_filename = nullptr;
 
-		this->m_filename = new char[strlen(filename) + 1];
+		m_filename = new char[strlen(filename) + 1];
 		strcpy(m_filename, filename);
+
 	}
 
 	void Numbers::sort()
@@ -185,18 +164,18 @@ namespace sdds
 		int i, j;
 		double temp;
 
-		for (i = this->m_numCount - 1; i > 0; i--)
+		for (i = m_numCount - 1; i > 0; i--)
 		{
 
 			for (j = 0; j < i; j++)
 			{
 
-				if (this->m_numbers[j] > this->m_numbers[j + 1])
+				if (m_numbers[j] > m_numbers[j + 1])
 				{
 
-					temp = this->m_numbers[j];
-					this->m_numbers[j] = this->m_numbers[j + 1];
-					this->m_numbers[j + 1] = temp;
+					temp = m_numbers[j];
+					m_numbers[j] = m_numbers[j + 1];
+					m_numbers[j + 1] = temp;
 
 				}
 
@@ -216,8 +195,12 @@ namespace sdds
 		{
 
 			for (int i = 0; i < m_numCount; i++)
+			{
 
 				aver += m_numbers[i];
+
+			}
+
 			aver = aver / m_numCount;
 
 		}
@@ -235,11 +218,19 @@ namespace sdds
 		if (!isEmpty())
 		{
 
-			minVal = this->m_numbers[0];
+			minVal = m_numbers[0];
 
-			for (int i = 1; i < this->m_numCount; i++)
+			for (int i = 1; i < m_numCount; i++)
+			{
 
-				if (minVal > this->m_numbers[i]) minVal = this->m_numbers[i];
+				if (minVal > m_numbers[i])
+				{
+
+					minVal = m_numbers[i];
+
+				}
+
+			}
 
 		}
 
@@ -286,15 +277,22 @@ namespace sdds
 
 				}
 
-				ostr << "-------------------------" << endl << "Total of " << this->m_numCount << " number(s)" << endl << "Largest number: " << max() << endl << "Smallest number: " << min() << endl << "Average: " << average() << endl << "=========================";
-
 			}
+
+			ostr << "-------------------------" << endl << "Total of " << m_numCount << " number(s)" << endl;
+			ostr.width(17);
+			ostr << left << "Largest number:";
+			ostr << max() << endl;
+			ostr.width(17);
+			ostr << left << "Smallest number:" << min() << endl;
+			ostr.width(17);
+			ostr << left << "Average :" << average() << endl << "=========================";
 
 		}
 		else
 		{
 
-			ostr << "Empty list" << endl;
+			ostr << "Empty list";
 
 		}
 
@@ -311,11 +309,19 @@ namespace sdds
 		if (!isEmpty())
 		{
 
-			maxVal = this->m_numbers[0];
+			maxVal = m_numbers[0];
 
 			for (int i = 1; i < this->m_numCount; i++)
+			{
 
-				if (maxVal < this->m_numbers[i]) maxVal = this->m_numbers[i];
+				if (maxVal < m_numbers[i])
+				{
+
+					maxVal = m_numbers[i];
+
+				}
+
+			}
 
 		}
 
@@ -327,9 +333,8 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		ifstream file(this->m_filename);
+		ifstream file(m_filename);
 		int totalNumbs = 0;
-		char ch = '\0';
 
 		if (file.is_open())
 		{
@@ -340,12 +345,6 @@ namespace sdds
 				totalNumbs += (file.get() == '\n');
 
 			}
-
-		}
-		else
-		{
-
-			cout << "The file is not open." << endl;
 
 		}
 
@@ -359,12 +358,12 @@ namespace sdds
 		// VARIABLE DECLARATION.
 		double temp = 0.0;
 		int i = 0;
-		ifstream file(this->m_filename);
+		ifstream file(m_filename);
 
 		if (m_numCount > 0)
 		{
 
-			this->m_numbers = new double[this->m_numCount];
+			m_numbers = new double[m_numCount];
 
 			if (file.is_open())
 			{
@@ -372,7 +371,8 @@ namespace sdds
 				while (file >> temp)
 				{
 
-					this->m_numbers[i++] = temp;
+					m_numbers[i] = temp;
+					i++;
 
 				}
 
@@ -380,26 +380,26 @@ namespace sdds
 
 		}
 
-		return i == this->m_numCount;
+		return i == m_numCount;
 
 	}
 
 	void Numbers::save()
 	{
 
-		// VARIABLE DECLARATION.
-		ofstream file(m_filename);
-
 		if (m_isOriginal && !isEmpty())
 		{
+
+			// VARIABLE DECLARATION.
+			ofstream file(m_filename);
 
 			if (file.is_open())
 			{
 
-				for (int i = 0; i < this->m_numCount; i++)
+				for (int i = 0; i < m_numCount; i++)
 				{
 
-					file << this->m_numbers[i] << endl;
+					file << m_numbers[i] << endl;
 
 				}
 
@@ -412,9 +412,7 @@ namespace sdds
 	ostream& operator<<(ostream& os, const Numbers& N)
 	{
 
-		N.display(os);
-
-		return os;
+		return N.display(os);
 
 	}
 
