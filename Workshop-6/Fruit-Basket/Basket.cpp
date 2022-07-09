@@ -65,11 +65,16 @@ namespace sdds
 	Basket& Basket::operator=(const Basket& source)
 	{
 
-		m_cnt = source.m_cnt;
-		m_price = source.m_price;
-		delete[]m_fruits;
-		m_fruits = new Fruit[m_cnt];
-		m_fruits = source.m_fruits;
+		if (*this != source)
+		{
+
+			m_cnt = source.m_cnt;
+			m_price = source.m_price;
+			delete[]m_fruits;
+			m_fruits = new Fruit[m_cnt];
+			m_fruits = source.m_fruits;
+
+		}
 
 		return *this;
 
@@ -94,9 +99,9 @@ namespace sdds
 
 	Basket::operator bool()const
 	{
-	
+
 		return m_cnt > 0;
-	
+
 	}
 
 	// MEMBER FUNCTIONS
@@ -110,7 +115,25 @@ namespace sdds
 	void operator<<(ostream& out, Basket RO)
 	{
 
+		if (RO.m_cnt > 0)
+		{
 
+			for (int i = 0; i < RO.m_cnt; i++)
+			{
+
+				out << RO.m_fruits[i].m_name << ": " << RO.m_fruits[i].m_qty << "kg" << endl;
+
+			}
+
+			out << RO.m_price << endl;
+
+		}
+		else
+		{
+
+			out << "The basket is empty!" << endl;
+
+		}
 
 	}
 

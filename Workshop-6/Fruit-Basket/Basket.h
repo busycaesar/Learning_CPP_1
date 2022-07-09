@@ -45,8 +45,12 @@ namespace sdds
 		// MEMBER FUNCTIONS
 		void setPrice(double price);
 
+		// FRIENDS.
+		friend void operator<<(ostream& out, Basket RO);
+
 	};
 
+	// HELPER OPERATOR.
 	void operator<<(ostream& out, Basket RO);
 
 }

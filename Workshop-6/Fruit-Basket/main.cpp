@@ -29,6 +29,7 @@ void printHeader(const char* title)
 
 int main()
 {
+
 	sdds::Fruit fruits[]{
 		{"apple",  0.65},
 		{"banana", 1.25},
@@ -38,18 +39,30 @@ int main()
 	};
 
 	{
+
 		printHeader("T1: Default Constructor");
 
+		// VARIABLE DECLARATION.
 		Basket aBasket;
+
 		cout << aBasket;
 
 		// conversion to bool operator
 		if (aBasket)
+		{
+		
 			cout << "Test failed: the basket should be empty!\n";
+		
+		}
 		else
+		{
+		
 			cout << "Test succeeded: operator said the basket is empty!\n";
+		
+		}
 
 		cout << endl;
+	
 	}
 
 	{
