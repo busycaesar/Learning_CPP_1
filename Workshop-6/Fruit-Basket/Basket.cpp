@@ -150,15 +150,17 @@ namespace sdds
 			{
 
 				out.width(11);
-				out << right << RO.m_fruits[i].m_name<<": ";
-				out.fixed;
+				out << right << RO.m_fruits[i].m_name << ": ";
+				out.setf(ios::fixed);
 				out.precision(2);
-				out << RO.m_fruits[i].m_qty << "Kg"<<endl;
+				out << RO.m_fruits[i].m_qty;
+				out << "Kg" << endl;
 
 			}
 
+			out << "Price: ";
 			out.precision(2);
-			out << "Price:" << RO.m_price << endl;
+			out << RO.m_price << endl;
 
 		}
 		else
