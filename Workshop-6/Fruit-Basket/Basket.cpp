@@ -1,4 +1,7 @@
+#include<iostream>
 #include"Basket.h"
+
+using namespace std;
 
 namespace sdds
 {
@@ -7,19 +10,20 @@ namespace sdds
 	void Basket::setEmpty()
 	{
 
-		Fruit* m_fruits = nullptr;
-		int m_cnt = 0;
-		double m_price = 0.0;
+		m_fruits = nullptr;
+		m_cnt = 0;
+		m_price = 0.0;
 
 	}
 
 	bool Basket::isvalid(Fruit* fruits, int total, double price)
 	{
 
-		return (fruits != nullptr && total > 0 && price > 0);
+		return (fruits != nullptr && total > 0 && price > 0.0);
 
 	}
 
+	// CONSTRUCTORS AND DESTRUCTOR.
 	Basket::Basket()
 	{
 
@@ -35,9 +39,15 @@ namespace sdds
 		if (isvalid(list, total, price))
 		{
 
-			delete[] m_fruits;
 			m_fruits = new Fruit[total];
-			m_fruits = list;
+
+			for (int i = 0; i < total; i++)
+			{
+
+				m_fruits[i] = list[i];
+
+			}
+
 			m_cnt = total;
 			m_price = price;
 
@@ -49,7 +59,6 @@ namespace sdds
 	{
 
 		setEmpty();
-
 		*this = source;
 
 	}
@@ -58,6 +67,7 @@ namespace sdds
 	{
 
 		delete[] m_fruits;
+		m_fruits = nullptr;
 
 	}
 
@@ -65,14 +75,23 @@ namespace sdds
 	Basket& Basket::operator=(const Basket& source)
 	{
 
-		if (*this != source)
+		if (this != &source)
 		{
 
 			m_cnt = source.m_cnt;
 			m_price = source.m_price;
-			delete[]m_fruits;
+
+			delete[] m_fruits;
+			m_fruits = nullptr;
+
 			m_fruits = new Fruit[m_cnt];
-			m_fruits = source.m_fruits;
+
+			for (int i = 0; i < m_cnt; i++)
+			{
+
+				m_fruits[i] = source.m_fruits[i];
+
+			}
 
 		}
 
@@ -84,13 +103,20 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		Fruit* temp = nullptr;
+		Fruit* temp = new Fruit[m_cnt + 1];
 
-		temp = new Fruit[++m_cnt];
-		temp = m_fruits;
+		for (int i = 0; i < m_cnt; i++)
+		{
+
+			temp[i] = m_fruits[i];
+
+		}
+
 		temp[m_cnt] = newObject;
-		delete[]m_fruits;
-		m_fruits = new Fruit[m_cnt];
+		m_cnt++;
+
+		delete[] m_fruits;
+
 		m_fruits = temp;
 
 		return *this;
@@ -112,20 +138,27 @@ namespace sdds
 
 	}
 
-	void operator<<(ostream& out, Basket RO)
+	void operator<<(ostream& out, Basket& RO)
 	{
 
 		if (RO.m_cnt > 0)
 		{
 
+			out << "Basket Content:" << endl;
+
 			for (int i = 0; i < RO.m_cnt; i++)
 			{
 
-				out << RO.m_fruits[i].m_name << ": " << RO.m_fruits[i].m_qty << "kg" << endl;
+				out.width(11);
+				out << right << RO.m_fruits[i].m_name<<": ";
+				out.fixed;
+				out.precision(2);
+				out << RO.m_fruits[i].m_qty << "Kg"<<endl;
 
 			}
 
-			out << RO.m_price << endl;
+			out.precision(2);
+			out << "Price:" << RO.m_price << endl;
 
 		}
 		else

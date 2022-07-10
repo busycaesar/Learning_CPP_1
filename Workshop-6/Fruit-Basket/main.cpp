@@ -15,6 +15,7 @@ using namespace sdds;
 
 void printHeader(const char* title)
 {
+
 	char oldFill = cout.fill('-');
 	cout.width(40);
 	cout << "" << endl;
@@ -25,12 +26,14 @@ void printHeader(const char* title)
 	cout.width(40);
 	cout << "" << endl;
 	cout.fill(oldFill);
+
 }
 
 int main()
 {
 
-	sdds::Fruit fruits[]{
+	// VARIABLE DECLARATION.
+	Fruit fruits[]{
 		{"apple",  0.65},
 		{"banana", 1.25},
 		{"pear",   0.50},
@@ -47,54 +50,72 @@ int main()
 
 		cout << aBasket;
 
-		// conversion to bool operator
+
 		if (aBasket)
 		{
-		
+
 			cout << "Test failed: the basket should be empty!\n";
-		
+
 		}
 		else
 		{
-		
+
 			cout << "Test succeeded: operator said the basket is empty!\n";
-		
+
 		}
 
 		cout << endl;
-	
+
 	}
 
 	{
+
 		printHeader("T2: Custom Constructor");
 
+		// VARIABLE DECLARATION.
 		Basket aBasket(fruits, 2, 6.99);
+
 		cout << aBasket;
 
 		// conversion to bool operator
 		if (aBasket)
+		{
+
 			cout << "Test succeeded: operator said the basket has content!\n";
+
+		}
 		else
+		{
+
 			cout << "Test failed: the basket should NOT be empty!\n";
 
+		}
+
 		cout << endl;
+
 	}
 
 	{
+
 		printHeader("T3: += operator");
 
+		// VARIABLE DECLARATION.
 		Basket aBasket;
+
 		aBasket += fruits[2];
 		(aBasket += fruits[0]) += fruits[4];
 		aBasket.setPrice(12.234);
 
 		cout << aBasket;
 		cout << endl;
+
 	}
 
 	{
+
 		printHeader("T4: Copy Constructor");
 
+		// VARIABLE DECLARATION.
 		Basket b1;
 		Basket b2(b1);
 
@@ -104,14 +125,19 @@ int main()
 		b1 += fruits[3];
 		b1.setPrice(3.50);
 
+		// VARIABLE DECLARATION.
 		Basket b3(b1);
+
 		cout << "Basket #3 -> " << b3;
 		cout << endl;
+
 	}
 
 	{
+
 		printHeader("T5: Copy Assignment");
 
+		// VARIABLE DECLARATION.
 		Basket b1, b2, b3(fruits, 5, 19.95);
 
 		b1 = b2;
@@ -123,6 +149,7 @@ int main()
 
 		b3 = b2;
 		cout << "Basket #3 -> " << b3;
+
 	}
 
 	return 0;
