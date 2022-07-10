@@ -167,12 +167,12 @@ namespace sdds
 			for (int i = 0; i < RO.m_cnt; i++)
 			{
 
-				out.width(11);
+				out.width(10);
 				out << right << RO.m_fruits[i].m_name << ": ";
 				out.setf(ios::fixed);
 				out.precision(2);
 				out << RO.m_fruits[i].m_qty;
-				out << "Kg" << endl;
+				out << "kg" << endl;
 
 			}
 
