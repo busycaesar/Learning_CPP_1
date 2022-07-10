@@ -1,6 +1,3 @@
-ISSUES: Extending the dynamic memory, 
-LEARNING: Debugging, Shallow Copying and deep copying, Copy constructor and copy assignment operator
-
 NAME       : DEV JIGISHKUMAR SHAH 
 STUDENT ID : 131623217
 MAIL ID    : djshah11@myseneca.ca
