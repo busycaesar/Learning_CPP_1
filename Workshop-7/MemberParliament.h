@@ -1,12 +1,18 @@
 #ifndef SDDS_MEMBERPARLIAMENT_H
 #define SDDS_MEMBERPARLIAMENT_H
 
+#include<iostream>
+
+using namespace std;
+
 namespace sdds
 {
 
 	// CLASS.
 	class MemberParliament
 	{
+
+	protected:
 
 		// DATA MEMBER.
 		char m_id[32], m_district[64];
@@ -16,8 +22,11 @@ namespace sdds
 
 	public:
 
-		// MEMBER FUNCTIONS.
+		// CONSTRUCTOR.
+		MemberParliament();
 		MemberParliament(char id[32], int age);
+
+		// MEMBER FUNCTIONS.
 		ostream& write(ostream& os);
 		istream& read(istream& in);
 

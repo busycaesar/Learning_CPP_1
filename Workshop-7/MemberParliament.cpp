@@ -1,3 +1,4 @@
+#include "MemberParliament.h"
 #include"MemberParliament.h"
 #include<cstring>
 #include<iostream>
@@ -14,6 +15,13 @@ namespace sdds
 		strcpy(m_district, "Unassigned");
 		m_age = 0;
 
+	}
+
+	MemberParliament::MemberParliament()
+	{
+
+		setEmpty();
+	
 	}
 
 	MemberParliament::MemberParliament(char id[32], int age)
@@ -77,18 +85,14 @@ namespace sdds
 	ostream& operator<<(ostream& os, MemberParliament& m)
 	{
 
-		os << m.write(os);
-
-		return os;
+		return m.write(os);
 
 	}
 
-	istream& operator>>(istream& in, MemberParliament& m);
+	istream& operator>>(istream& in, MemberParliament& m)
 	{
-
-		in >> m.read(in);
-
-		return in;
+		
+		return m.read(in);
 
 	}
 
