@@ -27,13 +27,13 @@ namespace sdds
 		MemberParliament(char id[32], int age);
 
 		// MEMBER FUNCTIONS.
-		ostream& write(ostream& os);
+		ostream& write(ostream& os)const;
 		istream& read(istream& in);
 
 	};
 
 	// HELPER FUNCTION.
-	ostream& operator<<(ostream& os, MemberParliament& m);
+	ostream& operator<<(ostream& os, const MemberParliament& m);
 	istream& operator>>(istream& in, MemberParliament& m);
 
 }

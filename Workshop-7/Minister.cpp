@@ -41,7 +41,7 @@ namespace sdds
 
 	}
 
-	ostream& Minister::write(ostream& os)
+	ostream& Minister::write(ostream& os)const
 	{
 
 		os << "| [" << m_id << "] | [" << m_age << "] | [" << m_district << "] | [" << m_pmName << "]/[" << m_year << "]" << endl;
@@ -64,7 +64,17 @@ namespace sdds
 
 	}
 
-	istream& operator>>(istream& in, Minister& minister)
-	{}
+	ostream& operator<<(ostream& os,const Minister& min)
+	{
+
+		return min.write(os);
+
+	}
+	istream& operator>>(istream& in, Minister& min)
+	{
+
+		return min.read(in);
+
+	}
 
 }

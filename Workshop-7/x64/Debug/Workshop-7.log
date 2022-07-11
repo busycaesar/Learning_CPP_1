@@ -1,0 +1,4 @@
+﻿  Minister.cpp
+D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop-7\Minister.cpp(24,3): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop-7\Minister.cpp(26,3): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop-7\Minister.cpp(33,3): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.

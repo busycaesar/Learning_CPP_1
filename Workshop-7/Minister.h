@@ -25,14 +25,14 @@ namespace sdds
 		// MEMBER FUNCTION.
 		void changePM(const char* pm);
 		void assumeOffice(int year);
-		ostream& write(ostream& os);
+		ostream& write(ostream& os)const;
 		istream& read(istream& in);
 
 	};
 
 	// HELPER FUNCTION.
-	ostream& operator<<(ostream& os, Minister& minister);
-	istream& operator>>(istream& in, Minister& minister);
+	ostream& operator<<(ostream& os,const Minister& min);
+	istream& operator>>(istream& in, Minister& min);
 
 }
 

@@ -59,7 +59,7 @@ namespace sdds
 
 	}
 
-	ostream& MemberParliament::write(ostream& os)
+	ostream& MemberParliament::write(ostream& os)const
 	{
 
 		os << "| [" << m_id << "] | [" << m_age << "] | [" << m_district << "]" << end;
@@ -82,7 +82,7 @@ namespace sdds
 
 	}
 
-	ostream& operator<<(ostream& os, MemberParliament& m)
+	ostream& operator<<(ostream& os,const MemberParliament& m)
 	{
 
 		return m.write(os);
