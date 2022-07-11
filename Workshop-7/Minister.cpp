@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include"Minister.h"
 #include<iostream>
 
@@ -46,6 +48,8 @@ namespace sdds
 
 		os << "| [" << m_id << "] | [" << m_age << "] | [" << m_district << "] | [" << m_pmName << "]/[" << m_year << "]" << endl;
 
+		return os;
+
 	}
 
 	istream& Minister::read(istream& in)
@@ -61,6 +65,8 @@ namespace sdds
 		in >> m_pmName;
 		cout << "Year Assumed Office: ";
 		in >> m_year;
+
+		return in;
 
 	}
 

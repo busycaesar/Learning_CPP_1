@@ -5,6 +5,8 @@
 // This file tests your workshop 7
 /////////////////////////////////////////////
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include<iostream>
 #include "Minister.h"
 #include "Minister.h" // intentional

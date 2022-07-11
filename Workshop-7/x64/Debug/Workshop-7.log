@@ -1,4 +1,4 @@
-﻿  Minister.cpp
-D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop-7\Minister.cpp(24,3): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop-7\Minister.cpp(26,3): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop-7\Minister.cpp(33,3): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+﻿Minister.obj : error LNK2019: unresolved external symbol "protected: void __cdecl sdds::MemberParliament::setEmpty(void)" (?setEmpty@MemberParliament@sdds@@IEAAXXZ) referenced in function "private: void __cdecl sdds::Minister::setEmpty(void)" (?setEmpty@Minister@sdds@@AEAAXXZ)
+Minister.obj : error LNK2019: unresolved external symbol "public: __cdecl sdds::MemberParliament::MemberParliament(char * const,int)" (??0MemberParliament@sdds@@QEAA@QEADH@Z) referenced in function "public: __cdecl sdds::Minister::Minister(char * const,int,int,char * const,char * const)" (??0Minister@sdds@@QEAA@QEADHH00@Z)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop-7\x64\Debug\Workshop-7.exe : fatal error LNK1120: 3 unresolved externals

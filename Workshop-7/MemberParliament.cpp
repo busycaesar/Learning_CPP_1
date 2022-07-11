@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "MemberParliament.h"
 #include"MemberParliament.h"
 #include<cstring>
