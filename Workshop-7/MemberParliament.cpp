@@ -10,29 +10,27 @@ using namespace std;
 namespace sdds
 {
 
-	/*void MemberParliament::setEmpty()
+	void MemberParliament::setEmpty()
 	{
 
 		m_id[0] = '\0';
 		strcpy(m_district, "Unassigned");
 		m_age = 0;
 
-	}*/
+	}
 
 	MemberParliament::MemberParliament()
 	{
-		strcpy(m_district, "Unassigned");
-		//setEmpty();
+		
+		setEmpty();
 
 	}
 
 	MemberParliament::MemberParliament(const char* id, int age)
 	{
 
-		//setEmpty();
-		strcpy(m_district, "Unassigned");
+		setEmpty();
 		strcpy(m_id, id);
-
 		m_age = age;
 
 	}
@@ -40,16 +38,16 @@ namespace sdds
 	void MemberParliament::NewDistrict(const char* district)
 	{
 
-		cout << "|[";
+		cout << "|";
 		cout.width(8);
 		cout << right << m_id;
-		cout << "]| |[";
+		cout << "| |";
 		cout.width(20);
 		cout << right << m_district;
-		cout << "] ---> [";
+		cout << " ---> ";
 		cout.width(23);
 		cout << left << district;
-		cout << "]|" << endl;
+		cout << "|" << endl;
 
 		strcpy(m_district, district);
 
@@ -58,7 +56,7 @@ namespace sdds
 	ostream& MemberParliament::write(ostream& os)const
 	{
 
-		os << "| [" << m_id << "] | [" << m_age << "] | [" << m_district << "]" << endl;
+		os << "| " << m_id << " | " << m_age << " | " << m_district;
 
 		return os;
 

@@ -16,7 +16,7 @@ namespace sdds
 		char m_id[32], m_district[64];
 		int m_age;
 
-		//void setEmpty();
+		void setEmpty();
 
 	public:
 

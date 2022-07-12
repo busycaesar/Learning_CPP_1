@@ -1,6 +1,1 @@
-﻿  main.cpp
-D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop--7\main.cpp(35,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  MemberParliament.cpp
-  Minister.cpp
-  Generating Code...
-  Workshop--7.vcxproj -> D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop--7\x64\Debug\Workshop--7.exe
+﻿  Workshop--7.vcxproj -> D:\CPA Sem 2\OOP 244\OOP244-Workshops\Workshop-7\x64\Debug\Workshop--7.exe

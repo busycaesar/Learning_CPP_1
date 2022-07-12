@@ -15,7 +15,7 @@ namespace sdds
 		int m_year;
 
 		// MEMBER FUNCTION.
-		//void setEmpty();
+		void setEmpty();
 
 	public:
 

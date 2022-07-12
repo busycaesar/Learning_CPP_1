@@ -8,18 +8,18 @@ using namespace std;
 namespace sdds
 {
 
-	/*void Minister::setEmpty()
+	void Minister::setEmpty()
 	{
 
 		m_pmName[0] = '\0';
 		m_year = 0000;
 
-	}*/
+	}
 
 	Minister::Minister(const char* id, int age, int year, const char* district, const char* pmName) :MemberParliament(id, age)
 	{
 
-		//setEmpty();
+		setEmpty();
 
 		MemberParliament::NewDistrict(district);
 		m_year = year;
@@ -46,7 +46,7 @@ namespace sdds
 
 		MemberParliament::write(os);
 
-		os << "] | [" << m_pmName << "]/[" << m_year << "]" << endl;
+		os << " | " << m_pmName << "/" << m_year << endl;
 
 		return os;
 
