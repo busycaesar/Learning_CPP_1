@@ -7,9 +7,7 @@
 
 #include<iostream>
 #include "Minister.h"
-#include "Minister.h" // intentional
 #include "MemberParliament.h"
-#include "MemberParliament.h" // intentional
 
 using namespace std;
 using namespace sdds;

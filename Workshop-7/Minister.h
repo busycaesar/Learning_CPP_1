@@ -15,12 +15,12 @@ namespace sdds
 		int m_year;
 
 		// MEMBER FUNCTION.
-		void setEmpty();
+		//void setEmpty();
 
 	public:
 
 		// CONSTRUCTOR.
-		Minister(const char* id, int age, int year, const char* district, char pmName[]);
+		Minister(const char* id, int age, int year, const char* district, const char* pmName);
 
 		// MEMBER FUNCTION.
 		void changePM(const char* pm);
