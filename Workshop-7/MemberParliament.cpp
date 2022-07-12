@@ -58,7 +58,7 @@ namespace sdds
 	ostream& MemberParliament::write(ostream& os)const
 	{
 
-		os << "| [" << m_id << "] | [" << m_age << "] | [" << m_district << "]" << end;
+		os << "| [" << m_id << "] | [" << m_age << "] | [" << m_district << "]" << endl;
 
 		return os;
 

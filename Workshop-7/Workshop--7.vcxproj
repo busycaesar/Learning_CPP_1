@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{fa912535-abb4-4973-9f32-6340b85d2206}</ProjectGuid>
+    <ProjectGuid>{b0744abb-dcad-41dc-95e4-1a721f15a515}</ProjectGuid>
     <RootNamespace>Workshop7</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -139,10 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Minister.h" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MemberParliament.cpp" />
+    <ClCompile Include="Minister.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Minister.cpp" />
+    <ClInclude Include="MemberParliament.h" />
+    <ClInclude Include="Minister.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

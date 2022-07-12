@@ -29,7 +29,7 @@ namespace sdds
 		// MEMBER FUNCTIONS.
 		ostream& write(ostream& os)const;
 		istream& read(istream& in);
-		
+
 	};
 
 	// HELPER FUNCTION.
