@@ -12,8 +12,6 @@ namespace sdds
 	class MemberParliament
 	{
 
-	protected:
-
 		// DATA MEMBER.
 		char m_id[32], m_district[64];
 		int m_age;
@@ -24,12 +22,14 @@ namespace sdds
 
 		// CONSTRUCTOR.
 		MemberParliament();
-		MemberParliament(char id[32], int age);
+		MemberParliament(const char* id, int age);
+
+		void NewDistrict(const char* district);
 
 		// MEMBER FUNCTIONS.
 		ostream& write(ostream& os)const;
 		istream& read(istream& in);
-
+		
 	};
 
 	// HELPER FUNCTION.

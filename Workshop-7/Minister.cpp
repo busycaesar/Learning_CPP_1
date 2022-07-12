@@ -11,19 +11,17 @@ namespace sdds
 	void Minister::setEmpty()
 	{
 
-		MemberParliament::setEmpty();
-
 		m_pmName[0] = '\0';
 		m_year = 0000;
 
 	}
 
-	Minister::Minister(char id[32], int age, int year, char district[64], char pmName[50]) : MemberParliament(id, age)
+	Minister::Minister(const char* id, int age, int year, const char* district, char pmName[])
 	{
 
 		setEmpty();
 
-		strcpy(m_district, district);
+		MemberParliament::NewDistrict(district);
 		m_year = year;
 		strcpy(m_pmName, pmName);
 
@@ -46,7 +44,9 @@ namespace sdds
 	ostream& Minister::write(ostream& os)const
 	{
 
-		os << "| [" << m_id << "] | [" << m_age << "] | [" << m_district << "] | [" << m_pmName << "]/[" << m_year << "]" << endl;
+		MemberParliament::write(os);
+
+		os<< "] | [" << m_pmName << "]/[" << m_year << "]" << endl;
 
 		return os;
 
@@ -55,12 +55,8 @@ namespace sdds
 	istream& Minister::read(istream& in)
 	{
 
-		cout << "Age: ";
-		in >> m_age;
-		cout << "Id: ";
-		in >> m_id;
-		cout << "District: ";
-		in >> m_district;
+		MemberParliament::read(in);
+
 		cout << "Reports TO: ";
 		in >> m_pmName;
 		cout << "Year Assumed Office: ";
@@ -70,7 +66,7 @@ namespace sdds
 
 	}
 
-	ostream& operator<<(ostream& os,const Minister& min)
+	ostream& operator<<(ostream& os, const Minister& min)
 	{
 
 		return min.write(os);

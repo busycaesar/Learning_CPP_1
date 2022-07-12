@@ -20,7 +20,7 @@ namespace sdds
 	public:
 
 		// CONSTRUCTOR.
-		Minister(char id[32], int age, int year, char district[64], char pmName[50]);
+		Minister(const char* id, int age, int year, const char* district, char pmName[]);
 
 		// MEMBER FUNCTION.
 		void changePM(const char* pm);
@@ -31,7 +31,7 @@ namespace sdds
 	};
 
 	// HELPER FUNCTION.
-	ostream& operator<<(ostream& os,const Minister& min);
+	ostream& operator<<(ostream& os, const Minister& min);
 	istream& operator>>(istream& in, Minister& min);
 
 }

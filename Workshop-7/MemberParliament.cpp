@@ -26,7 +26,7 @@ namespace sdds
 	
 	}
 
-	MemberParliament::MemberParliament(char id[32], int age)
+	MemberParliament::MemberParliament(const char* id, int age)
 	{
 
 		setEmpty();
@@ -55,8 +55,7 @@ namespace sdds
 		cout.width(23);
 		cout << left << district;
 		cout << "]|" << endl;
-		// |[MP ID]| |[CURRENT_DISTRICT] ---> [NEW_DISTRICT]|<ENDL>
-
+		
 		strcpy(m_district, district);
 
 	}
