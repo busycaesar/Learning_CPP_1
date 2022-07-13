@@ -1,0 +1,11 @@
+# REFLECTION
+
+NAME       : DEV JIGISHKUMAR SHAH 
+STUDENT ID : 131623217
+MAIL ID    : djshah11@myseneca.ca
+COURSE     : OOP 244 NCC
+SUBMISSION : WORKSHOP 7 AND MILESTONE 1 REFLECTION
+
+In this Workshop, the first thing which I have learned is the method to inherit a class from another class. In technical terms, the class from which another class is derived is called Base Class and the derived class is called Derived Class. Moving forward, there was a period when I wrote all of the base class's data members in the "Protective" section so that I could set their values from the derived class. Later on, I learned that this is not the best course of action, though. To add to that, I later on realized that the functions to assign the value to those Data Members already existed. As a result, I used them to finish my program's implementation. Additionally, I learned the way to access a shadowed member function defined in base class, that is using scope resolution.  Overall, this workshop showed me how to create a derived class from base class and how they truly operate when constructors and other functions are used. Additionally, I learned what "protective" really meant.
+
+Moving forward towards milestone, I've learnt that it's always best to understand what a module is actually storing and what it will be doing before starting to develop it. Further, keeping that knowledge in mind all the logic should be designed which also includes observing some common logic and just writing it once rather than repeating it many time. The programmer should first develop a false logic once all the logic has been written in order to see if the module's functionalities are performing as intended or not before going on to another module. 
