@@ -90,12 +90,12 @@ namespace sdds
 
 	}
 
-	ostream& sdds::displaytitle(const char* accType, double currBal, ostream& out)
+	ostream& displaytitle(const char* accType, double currBal, ostream& out)
 	{
 
 		out.setf(ios::fixed);
 		out.precision(2);
-		out << "Account type: " << accType << endl << "Balance: $"<< currBal << endl;
+		out << "Account type: " << accType << endl << "Balance: $" << currBal << endl;
 
 		return out;
 
