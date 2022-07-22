@@ -19,7 +19,6 @@
 #ifndef SDDS_SAVINGSACCOUNT_H
 #define SDDS_SAVINGSACCOUNT_H
 
-// USED HEADER FILE.
 #include"Account.h"
 
 // USED NAMESPACE.

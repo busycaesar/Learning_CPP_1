@@ -16,7 +16,8 @@
 //                                                                  //
 //******************************************************************//
 
-// USED HEADER FILE.
+#define _CRT_SECURE_NO_WARNINGS
+
 #include"SavingsAccount.h"
 
 namespace sdds
@@ -49,7 +50,7 @@ namespace sdds
 	void SavingsAccount::monthEnd()
 	{
 
-		Account::credit(Account::balance() + (Account::balance() * m_roi));
+		Account::credit(Account::balance() * m_roi);
 
 	}
 
@@ -57,7 +58,7 @@ namespace sdds
 	{
 
 		displaytitle("Savings", Account::balance(), out);
-		out << "Interest Rate (%): " << m_roi;
+		out << "Interest Rate (%): " << (m_roi*100.0) << endl;
 
 	}
 

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{832f7629-e4a9-449c-b664-d0dbf5411ed0}</ProjectGuid>
-    <RootNamespace>BankAccounts</RootNamespace>
+    <ProjectGuid>{050202a5-e617-419e-93f6-baeb6b9e239b}</ProjectGuid>
+    <RootNamespace>BankAccount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -144,7 +144,6 @@
     <ClCompile Include="ChequingAccount.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SavingsAccount.cpp" />
-    <ClCompile Include="savings_tester.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h" />

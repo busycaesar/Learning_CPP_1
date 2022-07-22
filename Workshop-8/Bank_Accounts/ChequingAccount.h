@@ -43,7 +43,7 @@ namespace sdds
 
 		// CONSTRUCTOR.
 		ChequingAccount(double initAmt, double tranFee, double monFee);
-		
+
 		// MEMBER FUNCTION.
 		bool credit(double amtCredit);
 		bool debit(double amtDebit);

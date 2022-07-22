@@ -35,7 +35,10 @@ namespace sdds
 	public:
 
 		// DESTRUCTOR.
-		virtual ~iAccount() = 0;
+		virtual ~iAccount()
+		{
+
+		}
 
 		// MEMBER FUNCTION.
 		virtual bool credit(double amoCredit) = 0;

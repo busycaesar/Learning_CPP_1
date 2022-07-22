@@ -18,9 +18,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="savings_tester.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Account.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

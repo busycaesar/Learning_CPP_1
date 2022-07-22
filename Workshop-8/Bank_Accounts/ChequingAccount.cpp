@@ -16,7 +16,8 @@
 //                                                                  //
 //******************************************************************//
 
-// USED HEADER FILE.
+#define _CRT_SECURE_NO_WARNINGS
+
 #include"ChequingAccount.h"
 
 namespace sdds
@@ -39,25 +40,25 @@ namespace sdds
 	}
 
 	// CONSTRUCTOR.
-	ChequingAccount::ChequingAccount(double initAmt, double tranFee, double monFee):Account(initAmt)
+	ChequingAccount::ChequingAccount(double initAmt, double tranFee, double monFee) :Account(initAmt)
 	{
-	
+
 		setEmpty();
 
-		if (tranFee>0)
+		if (tranFee > 0)
 		{
 
 			m_tranFee = tranFee;
 
 		}
 
-		if (monFee>0)
+		if (monFee > 0)
 		{
 
-			m_monFee = m_monFee;
+			m_monFee = monFee;
 
 		}
-	
+
 	}
 
 	// MEMBER FUNCTION.
@@ -81,7 +82,7 @@ namespace sdds
 
 	bool ChequingAccount::debit(double amtDebit)
 	{
-	
+
 		if (Account::debit(amtDebit))
 		{
 
@@ -94,22 +95,22 @@ namespace sdds
 			return false;
 
 		}
-	
+
 	}
 
 	void ChequingAccount::monthEnd()
 	{
-	
+
 		Account::debit(m_monFee);
-	
+
 	}
 
 	void ChequingAccount::display(ostream& out)const
 	{
-	
+
 		displaytitle("Chequing", Account::balance(), out);
-		out << "Per Transaction Fee: " << m_tranFee << endl << "Monthly Fee: " << m_monFee;
-	
+		out << "Per Transaction Fee: " << m_tranFee << endl << "Monthly Fee: " << m_monFee << endl;
+
 	}
 
 }

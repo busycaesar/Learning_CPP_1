@@ -16,7 +16,8 @@
 //                                                                  //
 //******************************************************************//
 
-// USED HEADER FILE.
+#define _CRT_SECURE_NO_WARNINGS
+
 #include"Account.h"
 
 namespace sdds
@@ -49,52 +50,52 @@ namespace sdds
 	bool Account::credit(double amtCredit)
 	{
 
+		// VARIABLE DECLARATION.
+		bool success = false;
+
 		if (amtCredit > 0)
 		{
 
 			m_currBal += amtCredit;
-			return true;
+			success = true;
 
 		}
-		else
-		{
 
-			return false;
-
-		}
+		return success;
 
 	}
 
 	bool Account::debit(double amtDebit)
 	{
 
+		// VARIABLE DECLARATION.
+		bool success = false;
+
 		if (amtDebit > 0)
 		{
 
 			m_currBal -= amtDebit;
-			return true;
+			success = true;
 
 		}
-		else
-		{
 
-			return false;
-
-		}
+		return success;
 
 	}
 
 	double Account::balance()const
 	{
-	
+
 		return m_currBal;
-	
+
 	}
 
 	ostream& sdds::displaytitle(const char* accType, double currBal, ostream& out)
 	{
 
-		out << "Account type: " << accType << endl << "Balance: " << currBal << endl;
+		out.setf(ios::fixed);
+		out.precision(2);
+		out << "Account type: " << accType << endl << "Balance: $"<< currBal << endl;
 
 		return out;
 

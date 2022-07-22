@@ -31,7 +31,7 @@ namespace sdds
 
 		// MEMBER VARIABLE.
 		double m_currBal;
-		
+
 		// MEMBER FUNCTION.
 		void setEmpty();
 
@@ -41,8 +41,11 @@ namespace sdds
 		Account(double initBal = 0);
 
 		// MEMBER FUNCTION.
-		bool credit(double amtCredit);
-		bool debit(double amtDebit);
+		virtual bool credit(double amtCredit);
+		virtual bool debit(double amtDebit);
+
+	protected:
+
 		double balance()const;
 
 	};
