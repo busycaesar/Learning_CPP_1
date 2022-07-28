@@ -21,16 +21,20 @@ namespace sdds
 		// CONSTRUCTOR.
 		FullName();
 		FullName(const char* name, const char* lastName);
+		
+		// RULE 1. COPY CONSTRUCTOR.
 		FullName(const FullName& source);
 
 		// DESTRUCTOR.
+		// RULE 3. DESTRUCTOR.
 		~FullName();
 
-		// TYPE CASTERS.
+		// TYPE CASTING.
 		operator const char* ()const;
 		virtual operator bool()const;
 
 		// OPERATORS.
+		// RULE 2. COPY ASSIGNMENT OPERATOR.
 		FullName& operator=(const FullName& source);
 
 		// MEMBER FUNCTIONS.

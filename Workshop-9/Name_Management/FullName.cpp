@@ -30,6 +30,7 @@ namespace sdds
 
 	}
 
+	// RULE 1. COPY CONSTRUCTOR.
 	FullName::FullName(const FullName& source)
 	{
 
@@ -39,6 +40,7 @@ namespace sdds
 	}
 
 	// DESTRUCTOR.
+	// RULE 3. DESTRUCTOR.
 	FullName::~FullName()
 	{
 
@@ -62,6 +64,7 @@ namespace sdds
 	}
 
 	// OPERATORS.
+	// RULE 2. COPY ASSIGNMENT OPERATOR.
 	FullName& FullName::operator=(const FullName& source)
 	{
 

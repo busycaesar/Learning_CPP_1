@@ -27,6 +27,7 @@ namespace sdds
 
 	}
 
+	// RULE 1. COPY CONSTRUCTOR.
 	Name::Name(const Name& source)
 	{
 
@@ -36,6 +37,7 @@ namespace sdds
 	}
 
 	// DESTRUCTOR.
+	// RULE 3. DESTRUCTOR.
 	Name::~Name()
 	{
 
@@ -52,6 +54,7 @@ namespace sdds
 
 	}
 
+	// RULE 2. COPY ASSIGNMENT OPERATOR.
 	Name& Name::operator=(const Name& source)
 	{
 

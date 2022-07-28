@@ -26,11 +26,15 @@ namespace sdds
 		Name(const Name& source);
 
 		// DESTRUCTOR.
+		// RULE 3. DESTRUCTOR.
 		virtual ~Name();
 
-		// OPERATOR.
+		// TYPE CASTING.
 		operator const char* ()const;
 		virtual operator bool()const;
+		
+		// OPERATOR.
+		// RULE 2. COPY ASSIGNMENT OPERATOR.
 		Name& operator=(const Name& source);
 
 		// MEMBER FUNCTION.
