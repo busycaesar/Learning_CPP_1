@@ -11,7 +11,7 @@ namespace sdds
 	{
 
 		// DATA MEMBER.
-		char* m_value;
+		char* m_lName;
 
 		// MEMBER FUNCTIONS.
 		void setEmpty();

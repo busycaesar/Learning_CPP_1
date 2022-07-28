@@ -9,7 +9,7 @@ namespace sdds
 	void FullName::setEmpty()
 	{
 
-		m_value = nullptr;
+		m_lName = nullptr;
 
 	}
 
@@ -25,14 +25,15 @@ namespace sdds
 
 		setEmpty();
 
-		m_value = new char[strlen(lastName) + 1];
-		strcpy(m_value, lastName);
+		m_lName = new char[strlen(lastName) + 1];
+		strcpy(m_lName, lastName);
 
 	}
 
 	FullName::FullName(const FullName& source)
 	{
 
+		setEmpty();
 		*this = source;
 
 	}
@@ -41,8 +42,7 @@ namespace sdds
 	FullName::~FullName()
 	{
 
-		delete[] m_value;
-
+		delete[] m_lName;
 		setEmpty();
 
 	}
@@ -51,13 +51,13 @@ namespace sdds
 	FullName::operator const char* ()const
 	{
 
-		return m_value;
+		return m_lName;
 
 	}
 	FullName::operator bool()const
 	{
 
-		return (Name::operator bool() && m_value != nullptr);
+		return (Name::operator bool() && m_lName != nullptr);
 
 	}
 
@@ -68,11 +68,11 @@ namespace sdds
 		if (this != &source)
 		{
 
-			delete[]m_value;
+			delete[] m_lName;
 			setEmpty();
 
-			m_value = new char[strlen(source.m_value) + 1];
-			strcpy(m_value, source.m_value);
+			m_lName = new char[strlen(source.m_lName) + 1];
+			strcpy(m_lName, source.m_lName);
 
 		}
 
@@ -88,7 +88,7 @@ namespace sdds
 		{
 
 			Name::display(ostr);
-			ostr << " " << m_value;
+			ostr << " " << m_lName;
 
 		}
 
@@ -98,11 +98,20 @@ namespace sdds
 
 	std::istream& FullName::read(std::istream& istr)
 	{
-	
+
 		Name::read(istr);
 
-		istr.get(m_value, '\n');
-		istr.ignore('\n');
+		// VARIABLE DECLARATION.
+		char temp[100];
+
+		istr.get(temp, 100, '\n');
+		istr.ignore(1);
+
+		delete[] m_lName;
+		m_lName = nullptr;
+
+		m_lName = new char[strlen(temp) + 1];
+		strcpy(m_lName, temp);
 
 		return istr;
 

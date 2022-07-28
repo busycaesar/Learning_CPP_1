@@ -1,14 +1,14 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include"Name.h"
-
+#include <string>
 namespace sdds
 {
 	// MEMBER FUNCTION.
 	void Name::setEmpty()
 	{
 
-		m_value = nullptr;
+		m_fName = nullptr;
 
 	}
 
@@ -25,14 +25,12 @@ namespace sdds
 
 		setEmpty();
 
-		m_value = new char[strlen(name) + 1];
-		strcpy(m_value, name);
-
 	}
 
 	Name::Name(const Name& source)
 	{
 
+		setEmpty();
 		*this = source;
 
 	}
@@ -41,7 +39,7 @@ namespace sdds
 	Name::~Name()
 	{
 
-		delete[]m_value;
+		delete[] m_fName;
 		setEmpty();
 
 	}
@@ -50,7 +48,7 @@ namespace sdds
 	Name::operator const char* ()const
 	{
 
-		return m_value;
+		return m_fName;
 
 	}
 
@@ -60,11 +58,11 @@ namespace sdds
 		if (this != &source)
 		{
 
-			delete[]m_value;
+			delete[]m_fName;
 			setEmpty();
 
-			m_value = new char[strlen(source.m_value) + 1];
-			strcpy(m_value, source.m_value);
+			m_fName = new char[strlen(source.m_fName) + 1];
+			strcpy(m_fName, source.m_fName);
 
 		}
 
@@ -75,7 +73,7 @@ namespace sdds
 	Name::operator bool()const
 	{
 
-		return (m_value != nullptr);
+		return (m_fName != nullptr);
 
 	}
 
@@ -86,7 +84,7 @@ namespace sdds
 		if (bool(this))
 		{
 
-			ostr << m_value;
+			ostr << m_fName;
 
 		}
 
@@ -97,14 +95,17 @@ namespace sdds
 	std::istream& Name::read(std::istream& istr)
 	{
 
-		istr >> m_value;
+		// VARIABLE DECLARATION.
+		char temp[100];
 
-		if (!istr.fail())
-		{
+		istr.get(temp, 100, ' ');
+		istr.ignore(1);
+		
+		delete[] m_fName;
+		m_fName = nullptr;
 
-			istr.ignore(1);
-
-		}
+		m_fName = new char[strlen(temp) + 1];
+		strcpy(m_fName, temp);
 
 		return istr;
 
@@ -119,10 +120,10 @@ namespace sdds
 	}
 	std::istream& operator>>(std::istream& in, Name& source)
 	{
-	
+
 		source.read(in);
 		return in;
-	
+
 	}
 
 }

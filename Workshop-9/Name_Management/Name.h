@@ -11,7 +11,7 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		char* m_value;
+		char* m_fName;
 
 		// MEMBER FUNCTION.
 		void setEmpty();
@@ -21,10 +21,12 @@ namespace sdds
 		// CONSTRUCTOR.
 		Name();
 		Name(const char* name);
+
+		// RULE 1. COPY CONSTRUCTOR.
 		Name(const Name& source);
 
 		// DESTRUCTOR.
-		~Name();
+		virtual ~Name();
 
 		// OPERATOR.
 		operator const char* ()const;
