@@ -1,0 +1,27 @@
+//******************************************************************//
+//                                                                  //
+// NAME       : DEV JIGISHKUMAR SHAH                                // 
+// STUDENT ID : 131623217                                           //
+// MAIL ID    : djshah11@myseneca.ca                                //
+// COURSE     : OOP 244 NCC                                         //
+// SUBMISSION : WORKSHOP PART - 2 (Reflection)                      //
+//                                                                  //
+//******************************************************************// 
+//                                                                  //
+// AUTHENTICITY DECLARATION :                                       //
+// I DECLARE THAT THIS SUBMISSION IS THE RESULT OF MY OWN WORK AND  //
+// HAS NOT BEEN SHARED WITH ANY OTHR STUDENT OR 3RD PARTY CONTENT   //
+// PROVIDER. THIS SUBMITTED PIECE OF WORK IS ENTIRELY OF MY OWN     //
+// CREATION.                                                        //
+//                                                                  //
+//******************************************************************//
+
+In this workshop, I have learned the following concepts:
+
+i. How to work with inheritence(that is, Base Class and Concrete Class), along with managing the resources which is a primary method to learn while working with inheritence because in such cases, memory management becomes a critical issue.
+
+ii. Further, while programming this workshop, I learned the concept of virtual functions. It is a procedure through which, an object of base class type would be able to access, the methods, functions, or operators of its inherited class. Whenever a function of base class is declared after adding the keyword 'virtual', the compiler ignore the implementation of that function when called and instead implements the function with the same name but the one which is declared in its inheritence class.
+
+iii.  Moreover, this workshop also taught how the concept of rule of three works in the case of a inheritance classes. 
+
+iv. Last but not the least, I learned some of the methods of the istream object, that is, get, getline and ignore, its functionality, arguments and which one to use according to the specific condition.
