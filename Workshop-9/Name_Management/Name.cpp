@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
-#include<cstring>
 #include"Name.h"
+#include<cstring>
 
 namespace sdds
 {
@@ -52,7 +52,7 @@ namespace sdds
 		if (bool(source))
 		{
 
-			*this = source;
+			setFname(source.m_fName);
 
 		}
 
@@ -64,7 +64,6 @@ namespace sdds
 	{
 
 		delete[] m_fName;
-		setEmpty();
 
 	}
 
@@ -83,13 +82,8 @@ namespace sdds
 		if (this != &source)
 		{
 
-			if (operator bool())
-			{
-
-				delete[] m_fName;
-				setEmpty();
-
-			}
+			delete[] m_fName;
+			setEmpty();
 
 			if (bool(source))
 			{
@@ -115,7 +109,7 @@ namespace sdds
 	std::ostream& Name::display(std::ostream& ostr)const
 	{
 
-		if (bool(this))
+		if (operator bool())
 		{
 
 			ostr << m_fName;
@@ -130,18 +124,17 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		char* temp = new char[100];
+		char* temp = new char[200];
 
-		istr.get(temp, 99, ' ');
+		istr.getline(temp, 199, ' ');
 
+		delete[] m_fName;
+		setEmpty();
 
-		if (!istr.fail())
+		if (istr)
 		{
 
-			delete[] m_fName;
-			setEmpty();
 			setFname(temp);
-			istr.ignore(1);
 
 		}
 

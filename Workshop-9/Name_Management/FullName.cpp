@@ -52,7 +52,7 @@ namespace sdds
 		if (bool(source))
 		{
 
-			*this = source;
+			setlName(source.m_lName);
 
 		}
 
@@ -89,23 +89,17 @@ namespace sdds
 		if (this != &source)
 		{
 
-			// THIS WILL TAKE CARE OF THE NAME PART OF THE OBJECT.
-			if (Name::operator bool())
+			Name::operator=(source);
+
+			delete[] m_lName;
+			setEmpty();
+
+			if (bool(source))
 			{
 
-				Name::operator=(source);
+				setlName(source.m_lName);
 
 			}
-
-			if (operator bool())
-			{
-
-				delete[] m_lName;
-				setEmpty();
-
-			}
-
-			setlName(source.m_lName);
 
 		}
 
@@ -135,17 +129,17 @@ namespace sdds
 		Name::read(istr);
 
 		// VARIABLE DECLARATION.
-		char* temp = new char[100];
+		char* temp = new char[200];
 
-		istr.get(temp, 99, '\n');
+		istr.getline(temp, 199, '\n');
 
-		if (!istr.fail())
+		delete[] m_lName;
+		setEmpty();
+
+		if (istr)
 		{
 
-			delete[] m_lName;
-			setEmpty();
 			setlName(temp);
-			istr.ignore(1);
 
 		}
 

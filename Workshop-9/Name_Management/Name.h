@@ -14,8 +14,8 @@ namespace sdds
 		char* m_fName;
 
 		// MEMBER FUNCTION.
-		void setEmpty();
-		void setFname(const char* fName);
+		void setEmpty(); // SETS THE DATA MEMBER TO NULL.
+		void setFname(const char* fName); // ALLOCATES THE DYNAMIC MEMORY TO THE VARIABLE AND COPIES THE CHARACTER INTO IT.
 
 	public:
 
