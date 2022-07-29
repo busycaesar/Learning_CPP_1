@@ -15,13 +15,14 @@ namespace sdds
 
 		// MEMBER FUNCTIONS.
 		void setEmpty();
+		void setlName(const char* lName);
 
 	public:
 
 		// CONSTRUCTOR.
 		FullName();
-		FullName(const char* name, const char* lastName);
-		
+		FullName(const char* fName, const char* lName);
+
 		// RULE 1. COPY CONSTRUCTOR.
 		FullName(const FullName& source);
 
@@ -40,7 +41,7 @@ namespace sdds
 		// MEMBER FUNCTIONS.
 		virtual std::ostream& display(std::ostream& ostr = std::cout)const;
 		virtual std::istream& read(std::istream& istr = std::cin);
-	
+
 	};
 
 }

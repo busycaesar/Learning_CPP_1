@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+#include<cstring>
 #include"Name.h"
-#include <string>
+
 namespace sdds
 {
 	// MEMBER FUNCTION.
@@ -9,6 +10,14 @@ namespace sdds
 	{
 
 		m_fName = nullptr;
+
+	}
+
+	void Name::setFname(const char* fName)
+	{
+
+		m_fName = new char[strlen(fName) + 1];
+		strcpy(m_fName, fName);
 
 	}
 
@@ -25,6 +34,13 @@ namespace sdds
 
 		setEmpty();
 
+		if (name != nullptr)
+		{
+
+			setFname(name);
+
+		}
+
 	}
 
 	// RULE 1. COPY CONSTRUCTOR.
@@ -32,7 +48,13 @@ namespace sdds
 	{
 
 		setEmpty();
-		*this = source;
+
+		if (bool(source))
+		{
+
+			*this = source;
+
+		}
 
 	}
 
@@ -61,11 +83,20 @@ namespace sdds
 		if (this != &source)
 		{
 
-			delete[]m_fName;
-			setEmpty();
+			if (operator bool())
+			{
 
-			m_fName = new char[strlen(source.m_fName) + 1];
-			strcpy(m_fName, source.m_fName);
+				delete[] m_fName;
+				setEmpty();
+
+			}
+
+			if (bool(source))
+			{
+
+				setFname(source.m_fName);
+
+			}
 
 		}
 
@@ -99,16 +130,22 @@ namespace sdds
 	{
 
 		// VARIABLE DECLARATION.
-		char temp[100];
+		char* temp = new char[100];
 
-		istr.get(temp, 100, ' ');
-		istr.ignore(1);
-		
-		delete[] m_fName;
-		m_fName = nullptr;
+		istr.get(temp, 99, ' ');
 
-		m_fName = new char[strlen(temp) + 1];
-		strcpy(m_fName, temp);
+
+		if (!istr.fail())
+		{
+
+			delete[] m_fName;
+			setEmpty();
+			setFname(temp);
+			istr.ignore(1);
+
+		}
+
+		delete[] temp;
 
 		return istr;
 
@@ -121,6 +158,7 @@ namespace sdds
 		return os;
 
 	}
+
 	std::istream& operator>>(std::istream& in, Name& source)
 	{
 

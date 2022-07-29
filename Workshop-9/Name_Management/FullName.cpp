@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+#include<cstring>
 #include"FullName.h"
 
 namespace sdds
@@ -13,29 +14,47 @@ namespace sdds
 
 	}
 
+	void FullName::setlName(const char* lName)
+	{
+
+		m_lName = new char[strlen(lName) + 1];
+		strcpy(m_lName, lName);
+
+	}
+
 	// CONSTRUCTOR.
-	FullName::FullName()
+	FullName::FullName() :Name()
 	{
 
 		setEmpty();
 
 	}
-	FullName::FullName(const char* name, const char* lastName) :Name(name)
+	FullName::FullName(const char* fName, const char* lName) :Name(fName)
 	{
 
 		setEmpty();
 
-		m_lName = new char[strlen(lastName) + 1];
-		strcpy(m_lName, lastName);
+		if (lName != nullptr)
+		{
+
+			setlName(lName);
+
+		}
 
 	}
 
 	// RULE 1. COPY CONSTRUCTOR.
-	FullName::FullName(const FullName& source)
+	FullName::FullName(const FullName& source) : Name(source)
 	{
 
 		setEmpty();
-		*this = source;
+
+		if (bool(source))
+		{
+
+			*this = source;
+
+		}
 
 	}
 
@@ -45,7 +64,6 @@ namespace sdds
 	{
 
 		delete[] m_lName;
-		setEmpty();
 
 	}
 
@@ -71,11 +89,23 @@ namespace sdds
 		if (this != &source)
 		{
 
-			delete[] m_lName;
-			setEmpty();
+			// THIS WILL TAKE CARE OF THE NAME PART OF THE OBJECT.
+			if (Name::operator bool())
+			{
 
-			m_lName = new char[strlen(source.m_lName) + 1];
-			strcpy(m_lName, source.m_lName);
+				Name::operator=(source);
+
+			}
+
+			if (operator bool())
+			{
+
+				delete[] m_lName;
+				setEmpty();
+
+			}
+
+			setlName(source.m_lName);
 
 		}
 
@@ -105,16 +135,21 @@ namespace sdds
 		Name::read(istr);
 
 		// VARIABLE DECLARATION.
-		char temp[100];
+		char* temp = new char[100];
 
-		istr.get(temp, 100, '\n');
-		istr.ignore(1);
+		istr.get(temp, 99, '\n');
 
-		delete[] m_lName;
-		m_lName = nullptr;
+		if (!istr.fail())
+		{
 
-		m_lName = new char[strlen(temp) + 1];
-		strcpy(m_lName, temp);
+			delete[] m_lName;
+			setEmpty();
+			setlName(temp);
+			istr.ignore(1);
+
+		}
+
+		delete[] temp;
 
 		return istr;
 

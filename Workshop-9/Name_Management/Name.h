@@ -15,6 +15,7 @@ namespace sdds
 
 		// MEMBER FUNCTION.
 		void setEmpty();
+		void setFname(const char* fName);
 
 	public:
 
@@ -27,7 +28,7 @@ namespace sdds
 
 		// DESTRUCTOR.
 		// RULE 3. DESTRUCTOR.
-		virtual ~Name();
+		~Name();
 
 		// TYPE CASTING.
 		operator const char* ()const;
@@ -45,7 +46,7 @@ namespace sdds
 
 	std::ostream& operator<<(std::ostream& os, Name& source);
 	std::istream& operator>>(std::istream& in, Name& source);
-
+	
 }
 
 #endif // !SDDS_NAME_H
