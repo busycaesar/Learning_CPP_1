@@ -1,7 +1,5 @@
 # Learning Outcomes
 
-## Upon successful completion of this workshop, you will have demonstrated the abilities to:
-
 ## - Create default and overloaded constructors
 ## - Create destructors
 ## - Initialize class member variables 
