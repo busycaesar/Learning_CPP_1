@@ -1,0 +1,21 @@
+Name        : Dev Jigishkumar Shah
+Course      : OOP 244 NCC
+Mail ID     : djshah11@myseneca.ca
+Student ID  : #131623217
+Submission  : Reflection: Workshop 1 Part 1
+
+In this workshop, the first thing which I learned is that instead of writing the whole code in a single
+module, it could be created in much more organized and easy to read way, by writing the code in
+various modules and linking all the modules at the end. In order to divide the code, one should
+identify all the similar functions, club them together and give the name to that module accordingly.
+Each of the club will have one header file (structs, constants, function prototypes) and one
+implimentation file (variables, function defination). However, over here the one thing which should be
+taken into consideration is that when we link in the files at the end, there are very high chances that
+some library or header file might get included twice because at the end the compiler is going to unite
+all the modules. Therefore, it is very important to use #ifndef, #define and #endif in every header file
+to rectify this possibility. Secondly writing the code in the same namespace lessens the possibility of
+any error which might occur due to declaration of the variable of same name. 
+
+(Why not to use 'using namespace' in header file?)
+
+
