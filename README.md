@@ -1,3 +1,3 @@
-# OOP244_Workshops
+# OOP244 Workshops
 
-## These are all the programs which I have written using c++ for this course.
+## These are all the workshops which I have completed in this course.
