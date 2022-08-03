@@ -1,0 +1,23 @@
+**************************************************************************
+* NAME        : DEV JIGISHKUMAR SHAH                                     *
+* COURSE      : OOP 244 NCC                                              *
+* MAIL ID     : djshah11@myseneca.ca                                     *
+* STUDENT ID  : 131623217                                                *
+* SUBMISSION  : WORKSHOP 4 PART 2                                        *
+* DECLARATION : THIS IS TO DECLARE THAT THE WHOLE PROGRAM WRITTEN BELOW  *
+*               IS COMPELTELY MY OWN CREATION. I HAVE NOT COPIED OR      * 
+*               SOUGHT HELP FROM ANY OF MY CLASSMATE OR SENIOR.          *
+**************************************************************************
+
+TOPICS WHICH I LEARNED IN THIS WORKSHOP:
+
+==> Application of constructors and destructors.
+==> Overload of constructor function.
+==> Use of helper functions.
+
+Other than this, the one issue which I faced in both the parts is that
+in many set member function, I tried to allocate the value of the 
+argument without first validating it. Due to this, I had to debug through
+my program properly which untilately took a lot of time. Due to this
+learing, from now on, in every future program, I will not repeat the same
+mistake again.
