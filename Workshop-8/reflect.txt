@@ -1,9 +1,0 @@
-# REFLECTION
-
-NAME       : DEV JIGISHKUMAR SHAH 
-STUDENT ID : 131623217
-MAIL ID    : djshah11@myseneca.ca
-COURSE     : OOP 244 NCC
-SUBMISSION : WORKSHOP 8 REFLECTION
-
-In this workshop, I learned the concept of virtual functions in the base class and derived class, its functionality, working and logic. Moreover, I also came to know what is a pure virtual class, how to declare it and its working. The class which has a pure virtual function is known as Abstract Class whereas the class which is derived from it is called a Concrete Class. We only make a class abstract if it does not have any significance alone. Significantly, an object of an abstract class can never be declared as a normal class. Therefore, it can be concluded that unless and until we derive any concrete class using abstract class, an abstract class is useless. Further, in order to make a concrete class, the pure virtual function declared in the abstract class should be defined in the derived class. This makes a class concrete. However, if we keep deriving classes from abstract class without actually defining the pure virtual function, all the consequent classes would also be considered an abstract class and could never be declared. To wrap up, it can be concluded that an abstract class is an incomplete class which is completed by a concrete class.
