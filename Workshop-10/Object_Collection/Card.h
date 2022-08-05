@@ -12,11 +12,11 @@
 #include <iostream>
 #include "Write.h"
 
-namespace sdds 
+namespace sdds
 {
 
     // CLASS DECLARATION,
-    class Card : public ReadWrite 
+    class Card : public ReadWrite
     {
 
         // DATA MEMBER.
@@ -27,15 +27,15 @@ namespace sdds
 
         // CONSTRUCTOR.
         Card(const char* suit = "", const int value = 0);
-        
+
         // OPERATOR.
         bool operator==(const char* mmSubstr)const;
         bool operator==(const int mmVal)const;
-    
+
         // METHOD.
         void set(const char* suit, const int value);
         std::ostream& display(std::ostream& os)const;
-        
+
     };
 
     // HELPER FUNCTION.

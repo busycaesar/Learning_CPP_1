@@ -15,32 +15,32 @@
 
 using namespace std;
 
-namespace sdds 
+namespace sdds
 {
 
-    Card::Card(const char* suit, const int value) 
+    Card::Card(const char* suit, const int value)
     {
 
         set(suit, value);
-    
+
     }
-    
-    void Card::set(const char* suit, const int value) 
+
+    void Card::set(const char* suit, const int value)
     {
 
         strncpy(m_suit, suit, 10);
         m_suit[8] = 0;
         m_value = value;
-    
+
     }
 
-    std::ostream& Card::display(std::ostream& os)const 
+    std::ostream& Card::display(std::ostream& os)const
     {
 
         // VARIABLE DECLARATION.
         char value[7];
 
-        switch (m_value) 
+        switch (m_value)
         {
 
         case 1:
@@ -68,27 +68,27 @@ namespace sdds
 
     }
 
-    bool Card::operator==(const char* mmStr)const 
+    bool Card::operator==(const char* mmStr)const
     {
 
         return strcmp(m_suit, mmStr) == 0;
-    
+
     }
 
-    bool Card::operator==(const int mmVal)const 
+    bool Card::operator==(const int mmVal)const
     {
 
         return m_value == mmVal;
-    
+
     }
 
-    std::ostream& operator<<(std::ostream& os, const Card& card) 
+    std::ostream& operator<<(std::ostream& os, const Card& card)
     {
 
         card.display(os);
-        
+
         return os;
-    
+
     }
 
 }

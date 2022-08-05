@@ -11,21 +11,21 @@
 
 #include <iostream>
 
-namespace sdds 
+namespace sdds
 {
 
     // CLASS DECLARATION.
-    class ReadWrite 
+    class ReadWrite
     {
 
     public:
-        
+
         // DESTRUCTOR.
         virtual ~ReadWrite() {}
- 
+
         // METHOD.
         virtual std::ostream& display(std::ostream& os)const = 0;
-    
+
     };
 
     // HELPER FUNCTION.

@@ -144,5 +144,3 @@ namespace sdds
 }
 
 #endif // !SDDS_COLLECTION_H_
-
-

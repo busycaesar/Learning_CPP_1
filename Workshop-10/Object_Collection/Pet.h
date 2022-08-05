@@ -28,15 +28,15 @@ namespace sdds
 		// CONSTRUCTOR.
 		Pet();
 		Pet(const char* name, const char* type, int age);
-	
+
 		// OPERATOR.
 		bool operator==(const char* type)const;
 		bool operator==(const int age)const;
-	
+
 		// METHOD.
 		void set(const char* name, const char* type, int age);
 		std::ostream& display(std::ostream& os)const;
-		
+
 	};
 
 	// HELPER FUNCTION.

@@ -29,7 +29,7 @@ namespace sdds
 		// CONSTRUCTOR.
 		Book();
 		Book(int upc, const char* title, const char* author, double price);
-		
+
 		// OPERATOR.
 		bool operator==(int upc)const;
 		bool operator==(const char* title)const;
