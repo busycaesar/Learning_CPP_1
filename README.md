@@ -1,3 +1,3 @@
 # OOP 244 Workshops
 
-## These are all the workshops which I have completed in this course.
+## We use to get workshops every week. Hence, this contains all 10 workshops along with the learning outcomes of each of them.
