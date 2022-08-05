@@ -1,3 +1,3 @@
-# OOP244 Workshops
+# OOP 244 Workshops
 
 ## These are all the workshops which I have completed in this course.
