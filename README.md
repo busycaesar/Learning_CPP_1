@@ -1,4 +1,4 @@
-# OOP 244 Workshops
+# OOP 244 Introduction to Object Oriented Programming
 
 ## We use to get workshops every week in this course. Hence, this contains all 10 workshops along with its learning outcomes.
 
