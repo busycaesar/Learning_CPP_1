@@ -1,6 +1,6 @@
 # OOP 244: Introduction to Object Oriented Programming
 
-## All the workshops of OOP 244
+## All the workshops of OOP 244.
 
 # Warning
 
